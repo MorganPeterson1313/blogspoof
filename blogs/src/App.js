@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
 import './App.css';
 import CreateBlogPost from './components/CreateBlogPost';
 import BlogPage from './components/BlogPage';
+import About from './components/About';
 function App() {
   return (
     <Router>
@@ -11,8 +12,10 @@ function App() {
           <nav style={{ marginLeft: "20%" }}>
             <NavLink
               style={{
+                border:'red 2px solid',
+                backgroundColor:'orange',
                 textDecoration: "none",
-                color: "red",
+                color: "white",
                 fontFamily: "courgie",
                 fontSize: "30px"
               }}
@@ -25,15 +28,32 @@ function App() {
             <NavLink
               style={{
                 textDecoration: "none",
-                color: "red",
-                fontFamily: "courgie",
+                border:'red 2px solid',
+                backgroundColor:'orange',
+                color: "white",
                 fontSize: "30px",
+                fontFamily: "courgie",
                 margin: "5%"
               }}
               
               to="/createblogpost"
             >
               Add Post
+            </NavLink>
+            <NavLink
+              style={{
+                textDecoration: "none",
+                border:'red 2px solid',
+                backgroundColor:'orange',
+                color: "white",
+                fontSize: "30px",
+                fontFamily: "courgie",
+                margin: "5%"
+              }}
+              
+              to="/"
+            >
+              About
             </NavLink>
           </nav>
         </div>
@@ -61,6 +81,7 @@ function App() {
           >
             
           </p> */}
+          <Route  exact path="/" component={About}/>
           <Route exact path="/blogpage" component={BlogPage} />
           <Route  path="/createblogpost" component={CreateBlogPost} />
         </section>

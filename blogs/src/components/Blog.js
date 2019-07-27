@@ -17,7 +17,7 @@ export class Blog extends Component {
             update: false,
             id: this.props.post.id,
             title: this.props.post.title,
-            content: this.props.post.content
+            contents: this.props.post.contents
         }
     }
 
@@ -32,7 +32,7 @@ export class Blog extends Component {
         const updatedPost = {
             id: this.state.id,
             text: this.state.text,
-            content:this.state.content
+            contents:this.state.contents
         }
         event.preventDefault();
         await this.props.update(updatedPost);
@@ -68,15 +68,15 @@ export class Blog extends Component {
         value={this.state.title}
         name="title"/>
 <input  onChange={this.handleInputChange}
-        placeholder="content"
-        value={this.state.content}
-        name="content"/>
+        placeholder="contents"
+        value={this.state.contents}
+        name="contents"/>
 
 <button type="submit">Finish Editing</button>
 </form>:
 
 
-<div style ={{color:'red', fontSize: '30px',}} >
+<div style ={{color:'white', fontSize: '30px', border:'red 2px solid',  opacity:'.5', backgroundColor:'orange', margin:'5%'}} >
 
 <section>
 <strong>BlogSpoof:</strong>
@@ -98,7 +98,7 @@ alt={this.props.post.title}
 <strong>Anonomous</strong> {this.props.post.contents}   
 </section>
 
-<button onClick={() => this.props.deletePost(this.props.posts.id)}>
+<button onClick={() => this.props.deletePost(this.props.post.id)}>
   Delete
 </button>
 <button onClick={(event)=> this.edit(event)}>Edit</button>

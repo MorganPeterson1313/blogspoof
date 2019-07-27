@@ -9,24 +9,24 @@ class CreateBlogPost extends Component {
     super(props);
     this.state = {
       title:"",
-      content:""
+      contents:""
     };
   }
 
   addPost = e => {
-    console.log("log from create post pagecof userId", this.props.userId);
+    console.log("log from create post pagecof id", this.props.id);
     e.preventDefault();
     
     const post = {
-      id:this.props.posts.id,
+      // id:this.props.post.id,
       // id: this.props.user.loggedinUser,
      title: this.state.title,
-     content: this.state.content
+     contents: this.state.contents
     };
-    if(this.props.posts.id){
+    // if(this.props.posts.id){
     this.props.addPost(post);
-    this.setState({ title: '', content: '' });
-    }
+    this.setState({ title: '', contents: '' });
+    // }
   };
 
   handleInputChange = e => {
@@ -35,7 +35,7 @@ class CreateBlogPost extends Component {
 
   render() {
     if(this.props.posts.id){
-    console.log("create blog page log:", this.props.user.loggedInUser.id)}
+    console.log("create blog page log:", this.props.posts.id)}
     return (
       <div style={{ marginTop: "20%" }}>
         <form onSubmit={this.addPost}>
@@ -67,9 +67,9 @@ class CreateBlogPost extends Component {
               color: "white"
             }}
             onChange={this.handleInputChange}
-            placeholder="content"
-            value={this.state.content}
-            name="content"
+            placeholder="contents"
+            value={this.state.contents}
+            name="contents"
           />
           
           <button
@@ -79,7 +79,7 @@ class CreateBlogPost extends Component {
               margin: "2%",
               color: "white"
             }}
-            onClick={e => this.addPost(e)}
+            type="submit"
           >
             Add Post
           </button>
